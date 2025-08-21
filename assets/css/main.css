@@ -1,0 +1,293 @@
+:root {
+    --font: Space Mono, monospace;
+    --bg-dark: hsl(183, 100%, 15%);
+    --bg-light: hsl(172, 64%, 51%);
+    --bg-extralight: hsl(172, 76%, 56%);
+    --bg-ultralight: hsl(185, 41%, 84%);
+    --bg-grey: hsl(189, 47%, 97%);
+    --font-color: hsl(184, 14%, 56%);
+    --bg-card: hsl(0, 100%, 100%);
+}
+
+/* Cascadia font */
+@import url('https://fonts.cdnfonts.com/css/cascadia-code');
+
+/* Force Cascadia Mono SemiBold on calculator numeric fields */
+#billInput,
+#peopleInput,
+#tipAmount,
+#totalAmount {
+  font-family: 'Cascadia Mono', 'Cascadia Code', monospace;
+  font-weight: 600;
+  font-size: 1.2rem;
+  color: var(--bg-dark);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {        
+    background-color: var(--bg-ultralight);
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+}
+
+section {
+    padding: 33px 0;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 24px;
+    position: relative;
+    justify-content: space-between;
+}
+
+section.card {
+    background-color: var(--bg-ultralight);
+}
+
+.card-2 {
+    background-color: white;
+    border-radius: 15px;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    row-gap: 32px;
+    height: 700px;
+}
+
+.card-green {
+    height: 100%;
+    width: 100%;
+}
+
+@media screen and (min-width: 1200px) and (max-width: 3840px) {
+    section {
+        padding: 66px 0;
+        border: 1px solid red;
+    }
+
+    .card-2 {
+        flex-direction: row;
+        row-gap: 0;
+        column-gap: 20px;
+        width: 45%;
+        height: 70%;
+    }
+
+    .card-green {
+        height: 100%;
+        width: 50%;
+    }
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+#calculator {
+    background-color: white;
+}
+
+@media screen and (max-width: 500px) {
+    .card-2 {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(2, 1fr);
+        column-gap: 10px;
+    }
+
+    .tip-sec {
+        margin-top: 30px;
+    }
+    
+    .btn-reset:hover {
+        background-color: #007bff;
+        color: white;
+    }
+}
+
+.keys {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    column-gap: 5px;
+    row-gap: 5px;
+    margin-top: 4px;
+}
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: space-between;
+    background-color: var(--bg-dark);
+    color: white;
+    padding: 30px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    height: 100%; 
+}
+
+#billInput,
+#peopleInput {
+  background-color: #f3f8fb;
+}
+
+.tip {
+    font-family: "Cascadia Code", monospace;
+    font-weight: 700;
+    font-size: 0.7rem;
+    justify-content: space-between;
+    color: var(--font-color);
+    display: flex;
+    flex-direction: column;
+    padding: 8px;
+    column-gap: 5px;
+    flex: 1 1 0%;
+}
+
+.tip-sec__label {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.8rem;
+    font-weight: 900;
+    color: var(--bg-dark);
+}
+
+.field {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-top: 4px;
+}
+
+.field input {
+    border: 1px solid black;
+    border-radius: 5px;
+    text-align: end;
+    width: 100%;
+    padding-left: 1.5em;
+    height: 32px;
+    padding-right: 1em;
+}
+
+.field input:focus {
+    border: var(--bg-dark);
+}
+
+.field .prefix {
+  position: absolute;
+  left: 8px;
+  color: var(--font-color);
+  font-size: 0.9rem;
+  font-weight: bold;
+  pointer-events: none;
+}
+
+.btn-reset {
+    background-color: var(--bg-light);
+    color: var(--bg-dark);
+    font-size: 0.8rem;
+    font-weight: bold;
+    font-family: "Bahnschrift Light Condensed", "Agency FB", sans-serif;
+    width: 100%;
+    border: none;
+    border-radius: 5px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.btn-reset:hover {
+    background-color: var(--bg-extralight);
+    color: var(--bg-dark);
+}
+
+.btn-tip-percent {
+    background-color: var(--bg-dark);
+    color: white;
+    font-size: 1rem;
+    font-family: "Cascadia Code", monospace;
+    font-weight: 600;
+    border-radius: 5px;
+    width: 75px;
+    height: 30px;
+}
+
+.btn-tip-percent:active {
+    background-color: var(--bg-ultralight);
+    color: var(--bg-dark);
+}
+
+.form-row {
+    display: flex;
+    column-gap: 8px;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.form-row__group-label {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 4px;
+}
+
+.form-label {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.form-sub-label {
+    font-size: 10.5px;
+    font-weight: 300;
+    color: var(--bg-ultralight);
+}
+
+.form-row__control {
+    display: flex;
+    align-items: center;
+}
+
+.form-row__control span {
+    font-size: 24px;
+    color: var(--bg-light);
+}
+
+.editable {
+    background-color: var(--bg-dark);
+    color: white;
+    font-size: 1rem;
+    font-family: "Cascadia Code", monospace;
+    font-weight: 600;
+    border-radius: 5px;
+    width: 75px;
+    height: 30px;
+    max-width: 100%;
+    overflow: hidden;
+    display: grid;
+    place-items: center;
+}
+
+.editable input {
+    border: none;
+    outline: none;
+    font: inherit;
+    width: 100%;
+    height: 30px;
+    color: var(--bg-dark);
+    background: var(--bg-grey);
+    border: 2px solid var(--bg-light);
+    border-radius: 5px;
+    padding: 2px 6px;
+    text-align: right;
+}

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tip Calculator</title>
+
+    <link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+    
+    <section class="card">
+        <img id="logo" src="assets/icon/logo.svg" alt="Splitter" width="55" height="45">
+
+        <div class="card card-2">          
+            <div class="tip">
+                <!-- Bill Input -->
+                <div class="tip-sec">
+                    <label class="tip-sec__label">Bill</label>
+                    <div class="field">  
+                        <span class="prefix">$</span>
+                        <input id="billInput" type="number">
+                    </div>
+                </div>
+
+                <!-- Tip Percent Buttons -->
+                <div class="tip-sec">
+                    <label class="tip-sec__label">Select Tip %</label>
+
+                    <div class="keys">
+                        <button onclick="appendToDisplay('5%')" class="btn btn-tip-percent">5%</button>
+                        <button onclick="appendToDisplay('10%')" class="btn btn-tip-percent">10%</button>
+                        <button onclick="appendToDisplay('15%')" class="btn btn-tip-percent">15%</button>
+                        <button onclick="appendToDisplay('25%')" class="btn btn-tip-percent">25%</button>
+                        <button onclick="appendToDisplay('50%')" class="btn btn-tip-percent">50%</button>
+                        <div class="btn editable" id="editableDiv">Custom</div>
+                    </div>
+                </div>
+
+                <!-- People Input -->
+                <div class="tip-sec">
+                    <label class="tip-sec__label">Number of people</label>
+                    <div class="field">  
+                      <span class="prefix"><img src="assets/icon/icon-person.svg" alt="Person"></span>
+                      <input id="peopleInput" type="number">                    
+                    </div>
+                </div>
+            </div> 
+
+            <!-- Result Card -->
+            <div class="card flex card-green">
+                <div class="form-row">
+                    <div class="form-row__group-label">
+                        <label class="font-cascadia form-label">Tip Amount</label>
+                        <label class="font-cascadia form-sub-label">/ person</label>
+                    </div>
+
+                    <div class="form-row__control">
+                        <span class="font-cascadia">$</span>
+                        <span class="font-cascadia" id="tipAmount">0.00</span>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-row__group-label">
+                        <label class="font-cascadia form-label">Total</label>
+                        <label class="font-cascadia form-sub-label">/ person</label>
+                    </div>
+
+                    <div class="form-row__control">
+                        <span class="font-cascadia">$</span>
+                        <span class="font-cascadia" id="totalAmount">0.00</span>
+                    </div>
+                </div>               
+
+                <button onclick="clearDisplay()" class="btn btn-reset" style="margin-top: 32px;">RESET</button>                    
+            </div>           
+        </div>
+    </section>
+
+    <script src="assets/js/main.js"></script>
+</body>
+</html>
